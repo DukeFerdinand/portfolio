@@ -12,24 +12,119 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Lora&display=swap"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		/>
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+
+	<div class="layout">
 		<slot />
-	</body>
+	</div>
+
+	<style is:global>
+		/* Colors */
+		:root {
+			/* Base colors */
+			--color-primary: #61afef; /* Primary color */
+			--color-secondary: #abb2bf; /* Secondary color */
+			--color-tertiary: #5c6370; /* Tertiary color */
+
+			/* Background colors */
+			--color-background: #282c34; /* Background color */
+			--color-background-dark: #21252b; /* Dark background color */
+
+			/* Text colors */
+			--color-text: #abb2bf; /* Text color */
+			--color-text-dark: #cdd9e5; /* Dark text color */
+			--color-text-light: #5c6370; /* Light text color */
+
+			/* Accent colors */
+			--color-accent: #98c379; /* Accent color */
+			--color-accent-hover: #56b6c2; /* Hovered accent color */
+			--color-accent-active: #3e8e9e; /* Active accent color */
+
+			/* Error and warning colors */
+			--color-error: #e06c75; /* Error color */
+			--color-warning: #d19a66; /* Warning color */
+
+			/* Miscellaneous colors */
+			--color-selection: #3e4451; /* Selection color */
+			--color-scrollbar: #4b5263; /* Scrollbar color */
+
+			--header-font: "Lora", serif;
+			--body-font: "Source Sans Pro", sans-serif;
+		}
+
+		/* Example usage */
+		body {
+			background-color: var(--color-background);
+			color: var(--color-text);
+			font-family: "Source Sans Pro", sans-serif;
+		}
+
+		a {
+			color: var(--color-primary);
+			font-family: var(--body-font);
+			letter-spacing: 0.05em;
+		}
+
+		button {
+			background-color: var(--color-accent);
+			color: var(--color-background);
+			border: none;
+			padding: 8px 16px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: var(--color-accent-hover);
+		}
+
+		button:active {
+			background-color: var(--color-accent-active);
+		}
+
+		.layout {
+			background-color: var(--color-background);
+			color: var(--color-text);
+			padding: 16px;
+		}
+
+		.header {
+			background-color: var(--color-background-dark);
+			color: var(--color-text-dark);
+			padding: 16px;
+		}
+
+		.nav {
+			background-color: var(--color-tertiary);
+			color: var(--color-text-light);
+			padding: 16px;
+		}
+
+		.content {
+			padding: 16px;
+		}
+
+		.footer {
+			background-color: var(--color-background-dark);
+			color: var(--color-text-dark);
+			padding: 16px;
+		}
+	</style>
+
+
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
